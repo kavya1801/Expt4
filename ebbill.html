@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EB Bill Calculation</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="bootstrap.min.js"/>
+    <link rel="stylesheet" href="bootstrap.min.css"/>
+    <link rel="stylesheet" href="script.js"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<!--for typeahead -->
+	
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js"></script>
+	<!--<link rel="stylesheet" href="https://maxcdn.bootstracdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />  -->
+	
+
+	<!-- Online-fonts -->
+	<link href="//fonts.googleapis.com/css?family=Montserrat:300,500,600,700,800" rel="stylesheet">
+	<link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+    <script type="text/javascript">
+        window.smartlook||(function(d) {
+        var o=smartlook=function(){ o.api.push(arguments)},h=d.getElementsByTagName('head')[0];
+        var c=d.createElement('script');o.api=new Array();c.async=true;c.type='text/javascript';
+        c.charset='utf-8';c.src='https://rec.smartlook.com/recorder.js';h.appendChild(c);
+        })(document);
+        smartlook('init', '2522f0e7a204e4f47008022e9c9070d428d19164');
+
+    </script>
+    <style>
+        body{
+            background-image: url(pic/ele.jpeg);
+            background-repeat: no-repeat;
+            background-size: 100%;
+        }
+        #top{
+            background-color: rgba(255,255,255,0.5);
+            height: 90px;
+            padding-top: 20px;
+            font-family: cursive;
+        }
+        #cg{
+            padding-left: 20px;
+        }
+        #he{
+            color:tomato;
+            font-family: cursive;
+        }
+        #se{
+            color:rgb(0, 0, 0);
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 18px;
+        }
+        #call{
+            font-family: cursive;
+           position: relative;
+           left: 280px;
+        }
+        #nab{
+            color:white;
+        }
+        .form-inline{
+        display: inline-flex;
+        }
+        #g1,#g2,#g3,#g4,#g4,#g5,#g6,#g7,#g8,#g9,#g10{
+            width:200px;
+        }
+        #c1,#c2,#c3,#c4,#c5,#c6,#c7,#c8,#c9,#c10{
+            width:200px;
+        }
+        #ccg{
+            position: relative;
+            left: 250px;
+            color:white;
+        }
+        #sem-cgpa-btn{
+            position: relative;
+            left: 250px;
+            color:white;
+        }
+        #gbtn{
+            position: relative;
+            left:50px;
+        }
+        #reset{
+            position: relative;
+            left: 50px;
+        }
+        #bod{
+            border:solid 1px white;
+            width:700px;
+            height:500px;
+            background-color: white;
+        }
+        #col{
+            background-color:deepskyblue;
+            background-image: linear-gradient(violet,white);
+            align-items: center;
+            height:60px;
+            padding-top:  9px;
+            font: 200;
+            font-size: 28px;
+            font-family: 'Times New Roman', Times, serif;
+            border:solid 3px black;
+        }
+        input[type=text], select {
+  width: 30%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 30%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+ 
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+#ans{
+    align-items: center;
+}
+h1
+{
+    color:white;
+}
+#cid{
+    width: 300px;
+}
+#cunt{
+    width: 300px;
+}
+#tariff{
+    width:300px;
+}
+#change{
+    text-align: center;
+}
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="" alt="" class="img-fluid" width="50px"/>
+            </a>
+        <div class="container-fluid bg-dark">
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="index.html" id="nab">CGPA Calculator</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="ebbill.html" id="nab">EB Bill Calculator</a>
+                </li>
+                    <a class="nav-link" href="calci.html" id="nab">Calculator</a>
+                </li>
+                </ul>
+            </div>
+        </div>
+    </nav><br> <br>
+    <div id="top">
+        <center>
+            <h1>CGPA CALCULATOR</h1>
+        </center> <br> <br> 
+        <center>
+            <div id="bod">
+                <div id="col">Bill Calculator</div>
+            <div> <br> <br>
+                <div>
+                    <label for="fname">Enter Customer ID</label> &emsp14;
+                    <input type="text" id="cid" name="firstname" placeholder="Customer ID..">
+                    <br>
+                    <label for="lname">Consumed Units</label> &emsp14; &emsp14; &emsp14;
+                    <input type="text" id="cunt" name="lastname" placeholder="Consumed Unit..">
+                    <br>
+                    <label for="country">Tariff Check</label> &emsp14; &emsp14; &emsp14; &emsp14; &emsp14; &emsp14;
+                    <select id="tariff" name="tariff">
+                      <option value="select">select</option>
+                      <option value="domestic">Domestic(Bimonthly)</option>
+                    </select> <br>
+                   
+                      <center>
+                    <input type="submit" value="Calculate" id="change" onclick="cbill('cunt')">
+                    <div class="col-xs-12 col-sm-12 col-md-4 col-md-offset-4 col-lg-4 col-lg-offset-4">
+                        <div class="box text-responsive" id="#box">
+                          <center>
+                            <h5>Bill Amount</h5><span class="change" id="change" align="center"> <input id="ans"></span></center>
+                        </div>
+                      </div>
+                    </center>
+                  </form>
+                </div>
+            </div>
+            </div>
+        </center>
+    </div>
+    </body>
+    <script>
+        function cbill(unit){
+            var a,b,amt,i,val,cos;
+            unit=Number(document.getElementById("cunt").value);
+            if(unit<=100)
+            {
+                amt=0;
+            }
+            else if(unit<=200)
+            {
+                  i=unit-100;
+                  amt=(i*1.5)+20;       
+            }
+            else if(unit<=500)
+            {
+               i=unit-100;
+               a=100*2;
+               val=i-100;
+                amt=(val*3)+a+30;
+            }
+            else if(unit>500)
+            {
+                i=unit-100;
+                a=100*3.5;
+                val=i-100;
+                b=300*4.6;
+                cos=val-300;
+                amt=(cos*6.6)+a+b+50;
+            }
+            document.getElementById("ans").value=amt;
+        }
+    </script>    
+    </html>

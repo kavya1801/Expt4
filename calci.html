@@ -1,0 +1,207 @@
+<!-- Write a program to build the Calculator in JavaScript. -->
+<!DOCTYPE html>
+<html>
+<head>
+<title>
+Calculator 
+</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="bootstrap.min.js"/>
+    <link rel="stylesheet" href="bootstrap.min.css"/>
+    <link rel="stylesheet" href="script.js"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<!-- Begins the JavaScript Code -->
+<script>
+
+// Use insert() function to insert the number in textview.
+function insert(num) 
+{
+document.form1.textview.value = document.form1.textview.value + num;
+}
+
+// Use equal() function to return the result based on passed values.
+function equal()
+{
+var exp = document.form1.textview.value;
+if(exp)
+{
+document.form1.textview.value = eval(exp)
+}
+}
+
+/* Here, we create a backspace() function to remove the number at the end of the numeric series in textview. */
+function backspace()
+{
+var exp = document.form1.textview.value;
+document.form1.textview.value = exp.substring(0, exp.length - 1); /* remove the element from total length ? 1 */
+}
+
+
+</script>
+<style>
+    body{
+        background-image: url(pic/mou.jpg);
+        background-size: 100%;
+        background-repeat: no-repeat;
+    }
+    #top{
+        background-color: rgba(112, 232, 241, 0.712);
+        height: 90px;
+        padding-top: 20px;
+        font-family: cursive;
+    }
+    #cg{
+        padding-left: 20px;
+    }
+    #he{
+        color:tomato;
+        font-family: cursive;
+    }
+    #se{
+        color:royalblue;
+        font-family:Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 18px;
+    }
+    #call{
+        font-family: cursive;
+       position: relative;
+       left: 280px;
+    }
+    #nab{
+        color:white;
+    }
+    .form-inline{
+    display: inline-flex;
+    }
+    #g1,#g2,#g3,#g4,#g4,#g5,#g6,#g7,#g8,#g9,#g10{
+        width:200px;
+    }
+    #c1,#c2,#c3,#c4,#c5,#c6,#c7,#c8,#c9,#c10{
+        width:200px;
+    }
+</style>
+
+<!-- Start the coding for CSS -->
+<style>
+/* Create the Outer layout of the Calculator. */
+.formstyle
+{
+width: 300px;
+height: 400px;
+margin: 20px auto;
+border: 3px solid black;
+border-radius: 7px;
+padding: 20px;
+text-align: center;
+background-color:rgba(109, 252, 252, 0.685);
+}
+
+/* Display top horizontal bar that contain some information. */
+h1 {
+	text-align: center;
+	padding: 23px;
+	background-color: skyblue;
+	color: white;
+	}
+input:hover
+{
+background-color:yellow;
+}
+	
+*{
+margin: 0;
+padding: 0;
+}
+
+/* It is used to create the layout for calculator button. */
+.btn{
+width: 50px;
+height: 50px;
+font-size: 25px;
+margin: 2px;
+cursor: pointer;
+background-color: white;
+color: black;
+
+}
+
+/* It is used to display the numbers, operations and results. */
+.textview{
+width: 223px;
+margin: 5px;
+font-size: 25px;
+padding: 5px;
+background-color: lightgreen;
+}	
+	
+</style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="" alt="" class="img-fluid" width="50px"/>
+            </a>
+        <div class="container-fluid bg-dark">
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="index.html" id="nab">CGPA Calculator</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="ebbill.html" id="nab">EB Bill Calculator</a>
+                </li>
+                    <a class="nav-link" href="calci.html" id="nab">Calculator</a>
+                </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <br>
+<h1> Calculator Program  </h1> <br> <br>
+ <div class= "formstyle">
+ <form name = "form1">
+ <input class= "textview" name = "textview">
+ </form>
+ <center>
+ <table >
+ <tr> 
+	<td> <input class = "btn" type = "button" value = "C" onclick = "form1.textview.value = ' ' " > </td>
+	<td> <input  class = "btn" type = "button" value = "B" onclick = "backspace()" > </td>
+	<td> <input  class = "btn" type = "button" value = "/" onclick = "insert('/')" > </td>
+	<td> <input class = "btn" type = "button" value = "x" onclick = "insert('*')" > </td>
+	</tr>
+	
+	 <tr> 
+	<td> <input class = "btn" type = "button" value = "7" onclick = "insert(7)" > </td>
+	<td> <input class = "btn" type = "button" value = "8" onclick = "insert(8)" > </td>
+	<td> <input class = "btn" type = "button" value = "9" onclick = "insert(9)" > </td>
+	<td> <input class = "btn" type = "button" value = "-" onclick = "insert('-')" > </td>
+	</tr>
+	
+	 <tr> 
+	<td> <input class = "btn" type = "button" value = "4" onclick = "insert(4)" > </td>
+	<td> <input class = "btn" type = "button" value = "5" onclick = "insert(5)" > </td>
+	<td> <input class = "btn" type = "button" value = "6" onclick = "insert(6)" > </td>
+	<td> <input class = "btn" type = "button" value = "+" onclick = "insert('+')" > </td>
+	</tr>
+	
+	 <tr> 
+	<td> <input class = "btn" type = "button" value = "1" onclick = "insert(1)" > </td>
+	<td> <input class = "btn" type = "button" value = "2" onclick = "insert(2)" > </td>
+	<td> <input class = "btn" type = "button" value = "3" onclick = "insert(3)" > </td>
+	<td rowspan = 5> <input class = "btn" style = "height: 110px" type = "button" value = "=" onclick = "equal()"> </td>
+	</tr>
+	<tr>
+	<td colspan = 2> <input class = "btn" style = "width: 106px" type = "button" value = "0" onclick = "insert(0)" > </td>
+	<td> <input class = "btn" type = "button" value = "." onclick = "insert('.')"> </td>
+	</tr>
+	</table>
+	</center>
+ </div>
+ </body>
+ </html>
+
+ 

@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CGPA Calculator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="bootstrap.min.js"/>
+    <link rel="stylesheet" href="bootstrap.min.css"/>
+    <link rel="stylesheet" href="script.js"/>
+    <link rel="stylesheet" href="one.css"/>
+    <link rel="stylesheet" href="one.js"/>
+    <link rel="stylesheet" href="two.css"/>
+    <link rel="stylesheet" href="three.js"/>
+    <link rel="stylesheet" href="style1.css"/>
+    <link rel="stylesheet" href="sc.js"/>
+    <link rel="stylesheet" href="main.js"/>
+    <link rel="stylesheet" href="main.js"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<!--for typeahead -->
+	
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js"></script>
+	<!--<link rel="stylesheet" href="https://maxcdn.bootstracdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />  -->
+	
+
+	<!-- Online-fonts -->
+	<link href="//fonts.googleapis.com/css?family=Montserrat:300,500,600,700,800" rel="stylesheet">
+	<link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+    <script type="text/javascript">
+        window.smartlook||(function(d) {
+        var o=smartlook=function(){ o.api.push(arguments)},h=d.getElementsByTagName('head')[0];
+        var c=d.createElement('script');o.api=new Array();c.async=true;c.type='text/javascript';
+        c.charset='utf-8';c.src='https://rec.smartlook.com/recorder.js';h.appendChild(c);
+        })(document);
+        smartlook('init', '2522f0e7a204e4f47008022e9c9070d428d19164');
+
+    </script>
+    <style>
+        body{
+            background-image: url(pic/dd.jpg);
+            background-repeat: no-repeat;
+            background-size: 100%;
+        }
+        #top{
+            background-color: rgba(112, 232, 241, 0.712);
+            height: 90px;
+            padding-top: 20px;
+            font-family: cursive;
+        }
+        #cg{
+            padding-left: 20px;
+        }
+        #he{
+            color:tomato;
+            font-family: cursive;
+        }
+        #se{
+            color:rgb(0, 0, 0);
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 18px;
+        }
+        #call{
+            font-family: cursive;
+           position: relative;
+           left: 280px;
+        }
+        #nab{
+            color:white;
+        }
+        .form-inline{
+        display: inline-flex;
+        }
+        #g1,#g2,#g3,#g4,#g4,#g5,#g6,#g7,#g8,#g9,#g10{
+            width:200px;
+        }
+        #c1,#c2,#c3,#c4,#c5,#c6,#c7,#c8,#c9,#c10{
+            width:200px;
+        }
+        #ccg{
+            position: relative;
+            left: 250px;
+            color:white;
+        }
+        #sem-cgpa-btn{
+            position: relative;
+            left: 250px;
+            color:white;
+        }
+        #gbtn{
+            position: relative;
+            left:50px;
+        }
+        #reset{
+            position: relative;
+            left: 50px;
+        }
+       #fcgpa{
+            font-size: 22px;
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: bolder;
+            color:blue;
+            padding-top: 15px;
+            padding-left: 150px;
+       }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="" alt="" class="img-fluid" width="50px"/>
+            </a>
+        <div class="container-fluid bg-dark">
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="index.html" id="nab"><h6>CGPA Calculator</h6></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="ebbill.html" id="nab"><h6>EB Bill Calculator</h6></a>
+                </li>
+                    <a class="nav-link" href="calci.html" id="nab"><h6>Calculator</h6></a>
+                </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <br>
+    <script>
+        window.onscroll = function() {myFunction()};
+        
+        var navbar = document.getElementById("navbar");
+        var sticky = navbar.offsetTop;
+        
+        function myFunction() {
+          if (window.pageYOffset >= sticky) {
+            navbar.classList.add("sticky")
+          } else {
+            navbar.classList.remove("sticky");
+          }
+        }
+        </script>
+            <script>
+                $(document).ready(function () {
+                    $(".dropdown").hover(
+                        function () {
+                            $('.dropdown-menu', this).not('.in .dropdown-menu').stop(true, true).slideDown("400");
+                            $(this).toggleClass('open');
+                        },
+                        function () {
+                            $('.dropdown-menu', this).not('.in .dropdown-menu').stop(true, true).slideUp("400");
+                            $(this).toggleClass('open');
+                        }
+                    );
+                });
+            </script>
+        
+    <div id="top">
+        <center>
+            <h1>CGPA CALCULATOR</h1>
+        </center>
+    </div>
+    <br>
+    <div class="container">
+        <div class="row">
+        <div class="col-sm-12 col-md-6 col-lg-6">
+        <div class="card-container">
+        <div class="card-block card-block-outline-info"></div>
+        <h1 class="card-title zoomIn animated" id="he">CGPA Calculator</h1>
+        <br>
+        <div style="display: inline-flex; padding-bottom:20px;"><label for="gpa" id="se">Semester1 </label>&nbsp;&nbsp;&nbsp;&nbsp;<input class="form-control fgpa" id="gpa1" name="gpa" placeholder="GPA" type="text" style="border-radius: 15px; box-shadow: 0 .25rem .25rem rgba(18, 235, 235, 0.2), 0 0 1rem rgba(0, 0, 0, 0.2);"/>&nbsp;&nbsp;&nbsp;<input class="form-control fcredits" id="fc1" placeholder="Credits" type="text" style="border-radius: 15px; box-shadow: 0 .25rem .25rem rgba(18, 235, 235, 0.2), 0 0 1rem rgba(0, 0, 0, 0.2);"/></div>
+        &nbsp;
+        <div style="display: inline-flex; padding-bottom:20px;"><label for="gpa" id="se">Semester2 </label>&nbsp;&nbsp;&nbsp;&nbsp;<input class="form-control fgpa" id="gpa2" name="gpa" placeholder="GPA" type="text" style="border-radius:  15px; box-shadow: 0 .25rem .25rem rgba(18, 235, 235, 0.2), 0 0 1rem rgba(0, 0, 0, 0.2);"/>&nbsp;&nbsp;&nbsp;<input class="form-control fcredits" id="fc2" placeholder="Credits" type="text" style="border-radius: 15px; box-shadow: 0 .25rem .25rem rgba(18, 235, 235, 0.2), 0 0 1rem rgba(0, 0, 0, 0.2);"/></div>
+        &nbsp;
+        <div style="display: inline-flex; padding-bottom:20px;"><label for="gpa" id="se">Semester3 </label>&nbsp;&nbsp;&nbsp;&nbsp;<input class="form-control fgpa" id="gpa3" name="gpa" placeholder="GPA" type="text" style="border-radius: 15px; box-shadow: 0 .25rem .25rem rgba(18, 235, 235, 0.2), 0 0 1rem rgba(0, 0, 0, 0.2);"/>&nbsp;&nbsp;&nbsp;<input class="form-control fcredits" id="fc3" placeholder="Credits" type="text" style="border-radius: 15px; box-shadow: 0 .25rem .25rem rgba(18, 235, 235, 0.2), 0 0 1rem rgba(0, 0, 0, 0.2);"/></div>
+        &nbsp;
+        <div style="display: inline-flex; padding-bottom:20px;"><label for="gpa" id="se">Semester4</label>&nbsp;&nbsp;&nbsp;&nbsp;<input class="form-control fgpa" id="gpa4" name="gpa" placeholder="GPA" type="text" style="border-radius: 15px; box-shadow: 0 .25rem .25rem rgba(18, 235, 235, 0.2), 0 0 1rem rgba(0, 0, 0, 0.2);"/>&nbsp;&nbsp;&nbsp;<input class="form-control fcredits" id="fc4" placeholder="Credits" type="text" style="border-radius: 15px; box-shadow: 0 .25rem .25rem rgba(18, 235, 235, 0.2), 0 0 1rem rgba(0, 0, 0, 0.2);"/></div>
+        &nbsp;
+        <div style="display: inline-flex; padding-bottom:20px;"><label for="gpa" id="se">Semester5</label>&nbsp;&nbsp;&nbsp;&nbsp;<input class="form-control fgpa" id="gpa5" name="gpa" placeholder="GPA" type="text" style="border-radius: 15px; box-shadow: 0 .25rem .25rem rgba(18, 235, 235, 0.2), 0 0 1rem rgba(0, 0, 0, 0.2);"/>&nbsp;&nbsp;&nbsp;<input class="form-control fcredits" id="fc5" placeholder="Credits" type="text" style="border-radius: 15px; box-shadow: 0 .25rem .25rem rgba(18, 235, 235, 0.2), 0 0 1rem rgba(0, 0, 0, 0.2);"/></div>
+        &nbsp;
+        <div style="display: inline-flex; padding-bottom:20px;"><label for="gpa" id="se">Semester6</label>&nbsp;&nbsp;&nbsp;&nbsp;<input class="form-control fgpa" id="gpa6" name="gpa" placeholder="GPA" type="text" style="border-radius: 15px; box-shadow: 0 .25rem .25rem rgba(18, 235, 235, 0.2), 0 0 1rem rgba(0, 0, 0, 0.2);"/>&nbsp;&nbsp;&nbsp;<input class="form-control fcredits" id="fc6" placeholder="Credits" type="text" style="border-radius: 15px; box-shadow: 0 .25rem .25rem rgba(18, 235, 235, 0.2), 0 0 1rem rgba(0, 0, 0, 0.2);"/></div>
+        &nbsp;
+        <div style="display: inline-flex; padding-bottom:20px;"><label for="gpa" id="se">Semester7</label>&nbsp;&nbsp;&nbsp;&nbsp;<input class="form-control fgpa" id="gpa7" name="gpa" placeholder="GPA" type="text" style="border-radius: 15px; box-shadow: 0 .25rem .25rem rgba(18, 235, 235, 0.2), 0 0 1rem rgba(0, 0, 0, 0.2);"/>&nbsp;&nbsp;&nbsp;<input class="form-control fcredits" id="fc7" placeholder="Credits" type="text" style="border-radius: 15px; box-shadow: 0 .25rem .25rem rgba(18, 235, 235, 0.2), 0 0 1rem rgba(0, 0, 0, 0.2);"/></div>
+        &nbsp;
+        <div style="display: inline-flex"><label for="gpa" id="se">Semester8 </label>&nbsp;&nbsp;&nbsp;&nbsp;<input class="form-control fgpa" id="gpa8" name="gpa" placeholder="GPA" type="text" style="border-radius: 15px; box-shadow: 0 .25rem .25rem rgba(18, 235, 235, 0.2), 0 0 1rem rgba(0, 0, 0, 0.2);"/>&nbsp;&nbsp;&nbsp;<input class="form-control fcredits" id="fc1" placeholder="Credits" type="text" style="border-radius: 15px; box-shadow: 0 .25rem .25rem rgba(18, 235, 235, 0.2), 0 0 1rem rgba(0, 0, 0, 0.2);"/></div>
+        &nbsp;
+        <p class="text-primary bounceInDown animated" id="fcgpa" style="color: blue;"></p>
+<br />
+<button class="btn btn-primary badge-pill badge-primary" id="sem-cgpa-btn" style="border-radius: 25px; box-shadow: 0 .25rem .25rem rgba(0, 0, 0, 0.2), 0 0 1rem rgba(0, 0, 0, 0.2);">Check CGPA</button></div>
+</div>
+        <div class="col-sm-12 col-md-6 col-lg-6">
+            <div class="card-container">
+            <div class="card-block card-block-outline-dark">
+            <h1 class="card-title zoomIn animated"  id="he">GPA Calculator</h1>
+            <br>
+                                <div class="form-inline" style="padding-bottom: 20px;">
+                                    <label><h5>Course1</h5> </label>&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <select class="form-control" name="Grades" id="g1" style="border-radius: 15px; box-shadow: 0 .25rem .25rem rgba(18, 235, 235, 0.2), 0 0 1rem rgba(0, 0, 0, 0.2);">
+                                        <option value="0" style="border-radius: 15px; box-shadow: 0 .25rem .25rem rgba(18, 235, 235, 0.2), 0 0 1rem rgba(0, 0, 0, 0.2);">Grade</option>
+                                        <option value="10" style="border-radius: 15px; box-shadow: 0 .25rem .25rem rgba(18, 235, 235, 0.2), 0 0 1rem rgba(0, 0, 0, 0.2);">O</option>
+                                        <option value="9" style="border-radius: 15px; box-shadow: 0 .25rem .25rem rgba(18, 235, 235, 0.2), 0 0 1rem rgba(0, 0, 0, 0.2);">A+</option>
+                                        <option value="8.5" style="border-radius: 15px; box-shadow: 0 .25rem .25rem rgba(18, 235, 235, 0.2), 0 0 1rem rgba(0, 0, 0, 0.2);">A</option>
+                                        <option value="8" style="border-radius: 15px; box-shadow: 0 .25rem .25rem rgba(18, 235, 235, 0.2), 0 0 1rem rgba(0, 0, 0, 0.2);">B+</option>
+                                        <option value="7" style="border-radius: 15px; box-shadow: 0 .25rem .25rem rgba(18, 235, 235, 0.2), 0 0 1rem rgba(0, 0, 0, 0.2);">B</option>
+                                        <option value="6" style="border-radius: 15px; box-shadow: 0 .25rem .25rem rgba(18, 235, 235, 0.2), 0 0 1rem rgba(0, 0, 0, 0.2);">C</option>
+                                        <option value="5" style="border-radius: 15px; box-shadow: 0 .25rem .25rem rgba(18, 235, 235, 0.2), 0 0 1rem rgba(0, 0, 0, 0.2);">P</option>
+                                        <option value="0" style="border-radius: 15px; box-shadow: 0 .25rem .25rem rgba(18, 235, 235, 0.2), 0 0 1rem rgba(0, 0, 0, 0.2);">F</option>
+                                    </select> &emsp14; &emsp14; &emsp14;
+                                    <select class="form-control" name="credits" id="c1" style="border-radius: 25px; box-shadow: 0 .25rem .25rem rgba(18, 235, 235, 0.2), 0 0 1rem rgba(0, 0, 0, 0.2);">
+                                        <option value="0" id="c0">Credits</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                    </select>
+                                </div>
+                                <div class="form-inline"  style="padding-bottom: 20px;">
+                                    <label><h5>Course2</h5></label>&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <select class="form-control" name="grades" id="g2" style="border-radius: 25px; box-shadow: 0 .25rem .25rem rgba(18, 235, 235, 0.2), 0 0 1rem rgba(0, 0, 0, 0.2);">
+                                        <option value="0" >Grade</option>
+                                        <option value="10">O</option>
+                                        <option value="9">A+</option>
+                                        <option value="8.5">A</option>
+                                        <option value="8">B+</option>
+                                        <option value="7">B</option>
+                                        <option value="6">C</option>
+                                        <option value="5">P</option>
+                                        <option value="0">F</option>
+                                    </select>&emsp14; &emsp14; &emsp14;
+                                    <select class="form-control" name="credits" id="c2" style="border-radius: 25px; box-shadow: 0 .25rem .25rem rgba(18, 235, 235, 0.2), 0 0 1rem rgba(0, 0, 0, 0.2);">
+                                        <option value="0" id="c0">Credits</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                    </select>
+                                </div>
+                                <div class="form-inline"  style="padding-bottom: 20px;">
+                                    <label><h5>Course3</h5></label>&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <select class="form-control" name="grades" id="g3" style="border-radius: 25px; box-shadow: 0 .25rem .25rem rgba(18, 235, 235, 0.2), 0 0 1rem rgba(0, 0, 0, 0.2);">
+                                        <option value="0" >Grade</option>
+                                        <option value="10">O</option>
+                                        <option value="9">A+</option>
+                                        <option value="8.5">A</option>
+                                        <option value="8">B+</option>
+                                        <option value="7">B</option>
+                                        <option value="6">C</option>
+                                        <option value="5">P</option>
+                                        <option value="0">F</option>
+                                    </select>&emsp14; &emsp14; &emsp14;
+                                    <select class="form-control" name="credits" id="c3" style="border-radius: 25px; box-shadow: 0 .25rem .25rem rgba(18, 235, 235, 0.2), 0 0 1rem rgba(0, 0, 0, 0.2);">
+                                        <option value="0" id="c0">Credits</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                    </select>
+                                </div>
+                                <div class="form-inline"  style="padding-bottom: 20px;">
+                                    <label><h5>Course4</h5></label>&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <select class="form-control" name="Grades" id="g4" style="border-radius: 25px; box-shadow: 0 .25rem .25rem rgba(18, 235, 235, 0.2), 0 0 1rem rgba(0, 0, 0, 0.2);">
+                                        <option value="0" >Grade</option>
+                                        <option value="10">O</option>
+                                        <option value="9">A+</option>
+                                        <option value="8.5">A</option>
+                                        <option value="8">B+</option>
+                                        <option value="7">B</option>
+                                        <option value="6">C</option>
+                                        <option value="5">P</option>
+                                        <option value="0">F</option>
+                                    </select>&emsp14; &emsp14; &emsp14;
+                                    <select class="form-control" class="form-control" name="credits" id="c4" style="border-radius: 25px; box-shadow: 0 .25rem .25rem rgba(18, 235, 235, 0.2), 0 0 1rem rgba(0, 0, 0, 0.2);">
+                                        <option value="0" id="c0">Credits</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                    </select>
+                                </div>
+                                <div class="form-inline"  style="padding-bottom: 20px;">
+                                    <label><h5>Course5</h5></label>&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <select class="form-control" name="Grades" id="g5" style="border-radius: 25px; box-shadow: 0 .25rem .25rem rgba(18, 235, 235, 0.2), 0 0 1rem rgba(0, 0, 0, 0.2);">
+                                        <option value="0" >Grade</option>
+                                        <option value="10">O</option>
+                                        <option value="9">A+</option>
+                                        <option value="8.5">A</option>
+                                        <option value="8">B+</option>
+                                        <option value="7">B</option>
+                                        <option value="6">C</option>
+                                        <option value="5">P</option>
+                                        <option value="0">F</option>
+                                    </select>&emsp14; &emsp14; &emsp14;
+                                    <select class="form-control" name="credits" id="c5" style="border-radius: 25px; box-shadow: 0 .25rem .25rem rgba(18, 235, 235, 0.2), 0 0 1rem rgba(0, 0, 0, 0.2);">
+                                        <option value="0" id="c0">Credits</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                    </select>
+                                </div>
+                                <div class="form-inline"  style="padding-bottom: 20px;">
+                                    <label><h5>Course6</h5></label>&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <select class="form-control" name="Grades" id="g6" style="border-radius: 25px; box-shadow: 0 .25rem .25rem rgba(18, 235, 235, 0.2), 0 0 1rem rgba(0, 0, 0, 0.2);">
+                                        <option value="0" >Grade</option>
+                                        <option value="10">O</option>
+                                        <option value="9">A+</option>
+                                        <option value="8.5">A</option>
+                                        <option value="8">B+</option>
+                                        <option value="7">B</option>
+                                        <option value="6">C</option>
+                                        <option value="5">P</option>
+                                        <option value="0">F</option>
+                                    </select>&emsp14; &emsp14; &emsp14;
+                                    <select class="form-control" name="credits" id="c6" style="border-radius: 25px; box-shadow: 0 .25rem .25rem rgba(18, 235, 235, 0.2), 0 0 1rem rgba(0, 0, 0, 0.2);">
+                                        <option value="0" id="c0">Credits</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                    </select><br>
+                                </div>
+                                <div class="form-inline"  style="padding-bottom: 20px;">
+                                    <label><h5>Course7</h5></label>&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <select class="form-control" name="Grades" id="g7" style="border-radius: 25px; box-shadow: 0 .25rem .25rem rgba(18, 235, 235, 0.2), 0 0 1rem rgba(0, 0, 0, 0.2);">
+                                        <option value="0" >Grade</option>
+                                        <option value="10">O</option>
+                                        <option value="9">A+</option>
+                                        <option value="8.5">A</option>
+                                        <option value="8">B+</option>
+                                        <option value="7">B</option>
+                                        <option value="6">C</option>
+                                        <option value="5">P</option>
+                                        <option value="0">F</option>
+                                    </select>&emsp14; &emsp14; &emsp14;
+                                    <select class="form-control" name="credits" id="c7" style="border-radius: 25px; box-shadow: 0 .25rem .25rem rgba(18, 235, 235, 0.2), 0 0 1rem rgba(0, 0, 0, 0.2);">
+                                        <option value="0" id="c0">Credits</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                    </select>
+                                </div>
+                                <div class="form-inline"  style="padding-bottom: 20px;">
+                                    <label><h5>Course8</h5></label>&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <select class="form-control" name="Grades" id="g8" style="border-radius: 25px; box-shadow: 0 .25rem .25rem rgba(18, 235, 235, 0.2), 0 0 1rem rgba(0, 0, 0, 0.2);">
+                                        <option value="0" >Grade</option>
+                                        <option value="10">O</option>
+                                        <option value="9">A+</option>
+                                        <option value="8.5">A</option>
+                                        <option value="8">B+</option>
+                                        <option value="7">B</option>
+                                        <option value="6">C</option>
+                                        <option value="5">P</option>
+                                        <option value="0">F</option>
+                                    </select>&emsp14; &emsp14; &emsp14;
+                                    <select class="form-control" name="credits" id="c8" style="border-radius: 25px; box-shadow: 0 .25rem .25rem rgba(18, 235, 235, 0.2), 0 0 1rem rgba(0, 0, 0, 0.2);">
+                                        <option value="0" id="c0">Credits</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                    </select>
+                                </div>
+                                <div class="form-inline"  style="padding-bottom: 20px;">
+                                    <label><h5>Course9</h5></label>&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <select class="form-control" name="Grade" id="g9" style="border-radius: 25px; box-shadow: 0 .25rem .25rem rgba(18, 235, 235, 0.2), 0 0 1rem rgba(0, 0, 0, 0.2);">
+                                        <option value="0" >Grade</option>
+                                        <option value="10">O</option>
+                                        <option value="9">A+</option>
+                                        <option value="8.5">A</option>
+                                        <option value="8">B+</option>
+                                        <option value="7">B</option>
+                                        <option value="6">C</option>
+                                        <option value="5">P</option>
+                                        <option value="0">F</option>
+                                    </select>&emsp14; &emsp14; &emsp14;
+                                    <select class="form-control" name="credits" id="c9" style="border-radius: 25px; box-shadow: 0 .25rem .25rem rgba(18, 235, 235, 0.2), 0 0 1rem rgba(0, 0, 0, 0.2);">
+                                        <option value="0" id="c0">Credits</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                    </select>
+                                </div>
+                                    <div class="form-inline"  style="padding-bottom: 20px;">
+                                    <label><h5>Course10</h5></label>&nbsp;&nbsp;
+                                    <select class="form-control" name="Grades" id="g10" style="border-radius: 25px; box-shadow: 0 .25rem .25rem rgba(18, 235, 235, 0.2), 0 0 1rem rgba(0, 0, 0, 0.2);">
+                                        <option value="0" >Grade</option>
+                                        <option value="10">O</option>
+                                        <option value="9">A+</option>
+                                        <option value="8.5">A</option>
+                                        <option value="8">B+</option>
+                                        <option value="7">B</option>
+                                        <option value="6">C</option>
+                                        <option value="5">P</option>
+                                        <option value="0">F</option>
+                                    </select>&emsp14; &emsp14; &emsp14;
+                                    <select class="form-control" name="credits" id="c10" style="border-radius: 25px; box-shadow: 0 .25rem .25rem rgba(18, 235, 235, 0.2), 0 0 1rem rgba(0, 0, 0, 0.2);">
+                                        <option value="0" id="c0">Credits</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                    </select>
+                                    <section>
+                                </div>
+                
+            <section></section>
+            </div>
+            
+            <p class="text-primary" id="grades" style="padding:1%; font-size :22px; font-family: 'Times New Roman', Times, serif;"></p>
+            <br />
+            <span class="btn-holder"><button class="gbtn btn btn-info badge-pill badge-info" id="gbtn" style="border-radius: 25px; box-shadow: 0 .25rem .25rem rgba(18, 235, 235, 0.2), 0 0 1rem rgba(0, 0, 0, 0.2); position: relative; left: 280px;">Get GPA</button></span> &nbsp; &emsp14; &emsp14;<span class="btn-holder"><button class="button btn btn-warning badge-pill badge-warning hide" id="reset" style="border-radius: 25px; box-shadow: 0 .25rem .25rem rgba(18, 235, 235, 0.2), 0 0 1rem rgba(0, 0, 0, 0.2);" onclick="clearAll()" type="button">Clear All</button></span><br />
+            &nbsp;</div>
+            </div>
+            </div>
+            </div>
+            <!-- This semester cgpa calculator -->
+            
+            <div class="col-sm-12 col-md-12 col-lg-12">
+            <div class="card-container">
+            <div class="card card-outline-primary mb-6">
+            <div class="card-block card-block-outline-info">
+            
+            <p class="cgpa-msg hide" disabled="disabled" id="cgpa-msg" style="font-family: 'Raleway', sans-serif;"></p>
+            </div>
+            </div>
+            </div>
+            </div>
+            <!-- fb like and share -->
+            
+            <div class="col-sm-12 col-md-12 col-lg-12">
+            
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+            </center>
+            
+            <!-- script for year in footer --><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+              var d = new Date();
+              document.getElementById('thisYear').innerHTML = d.getFullYear();
+            </script><!-- main script file  --><script language="javascript" type="text/javascript" src="bootstrap/css/jsfile.js"></script><script language="javascript" type="text/javascript" src="sc.js"></script>
+            </body>
+            </html>
+</body>
+</html>
